@@ -10,6 +10,19 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var massege: UILabel!
+
+    @IBOutlet weak var textField: UITextField!
+    
+
+    @IBAction func ckickmeTaped(_ sender: Any) {
+       massege.text = textField.text!
+        textField.text = "111"  
+    }
+
+    
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
