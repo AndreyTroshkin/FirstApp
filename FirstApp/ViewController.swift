@@ -16,8 +16,8 @@ class ViewController: UIViewController {
     
 
     @IBAction func ckickmeTaped(_ sender: Any) {
-       massege.text = textField.text!
-        textField.text = "111"  
+       massege.text = "Got message: \(textField.text!)"
+ 
     }
 
     
@@ -25,6 +25,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
 
