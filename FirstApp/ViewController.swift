@@ -14,9 +14,13 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var textField: UITextField!
     
+    @IBAction func ShowTaped(_ sender: Any) {
+   performSegue(withIdentifier: "Showsecond", sender: nil)
+    }
 
     @IBAction func ckickmeTaped(_ sender: Any) {
        massege.text = "Got message: \(textField.text!)"
+       textField.resignFirstResponder()
  
     }
 
@@ -25,7 +29,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        textField.delegate = self
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -37,3 +41,18 @@ class ViewController: UIViewController {
 
 }
 
+extension ViewController:
+UITextFieldDelegate{
+    func textFieldDidEndEditing(_ textField: UITextField){
+        massege.text = "End editing"
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+     massege.text = "Begin editing"
+    }
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) ->Bool{
+        massege.text = "Will change '\(string)'"
+        return string != "b"
+        
+    }
+}
